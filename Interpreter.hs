@@ -112,10 +112,3 @@ appNF_n num ex = if num > 0
         (Just othr) -> appNF_n (num-1) othr
         Nothing -> ex
   else ex
-
-  appNF_n :: Int -> Expr -> Expr
-  appNF_n n e case n of
-    0 -> e
-    _ -> case appNF_OneStep(e) of
-      Nothing -> e
-      (Just e') -> appNF_n (n-1) e
